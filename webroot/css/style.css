@@ -1,0 +1,26 @@
+/**
+ * Style
+ *
+ * @author  Pedro Elsner <pedro.elsner@gmail.com>
+ * @license http://creativecommons.org/licenses/by/3.0/br/ Creative Commons 3.0
+ * @link 	http://www.github.com/pedroelsner/acl_caching
+ */
+
+.hidden { display:none; }
+.pointer { cursor:pointer; }
+
+.acl_bgcolor1 { background:#fff; }
+.acl_bgcolor2 { background:#f3f3f3; }
+
+.acl_bgcolor_plugin { 
+	background:#333;
+	color:#fff 
+}
+
+#acl_right {
+	width:auto !important;
+}
+
+#acl_right tbody tr td.cell {
+	text-align:center;
+}
