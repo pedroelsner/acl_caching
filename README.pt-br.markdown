@@ -184,6 +184,16 @@ Sendo assim, como o plugin grava as permissões de acesso em uma variável de se
     }
 </pre>
 
+## forceAllow()
+
+Quando utilizamos Auth ou ACL, para podermos liberar o acesso a todas as actions do sistema usamos a função `$this->Auth->allow("*")`. Agora, utilizando o plugin ACL_Caching usaremos __$this->AclCaching->forceAllow()__.
+
+Chamando está função, desativamos todo o sistema de permissão, liberando acesso a todas as actions do sistema e exibindo todos os links do helper Acl_HTML:
+
+<pre>
+    // Liberando GERAL =D
+    $this->AclCaching->forceAllow();
+</pre>
 
 ## flushCache()
 

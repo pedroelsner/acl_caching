@@ -184,6 +184,16 @@ Thus, the plugin writes the access permissions in a session variable on login, y
     }
 </pre>
 
+## forceAllow()
+
+When using Auth and ACL, in order to allow access to all actions of the system we use the function `$ this-> Auth-> allow ("*")`. Now, using the plugin will use ACL_Caching __$this->AclCaching->forceAllow()__.
+
+Calling this function, turn off all the permit system, freeing up access to all actions of the system and displaying all the helper Acl_HTML links:
+
+<pre>
+    // Allow ALL
+    $this->AclCaching->forceAllow();
+</pre>
 
 ## flushCache()
 
