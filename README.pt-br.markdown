@@ -1,14 +1,14 @@
 # ACL Caching
 
-Extende as funcionabilidades do AclComponente fazendo cache de todas as permissões de acesso no login, além de disponíbilizar funções especiais e um helper para tratamento de links.
+Plugin que extende as funcionabilidades do AclComponente fazendo cache de todas as permissões de acesso no login, além de disponíbilizar funções especiais e um helper para tratamento de links.
 
 ## Compatibilidade
 
 Este plugin é compatível com a versão 1.3.x do CakePHP
 
-## Descantavem
+## Desvantagem
 
-*   Carrega todas as permissões no login, sendo necessario realizar logout caso queria que novas denifições de acesso entrem em vigor. Contudo, esta desvantagem pode ser “revertida” pela função especial checkDB() presente no plugin.
+*   Carrega todas as permissões no login, sendo necessario realizar logout caso queria que novas definições de acesso entrem em vigor. Contudo, esta desvantagem pode ser “revertida” pela função especial `checkDB()` presente no plugin.
 
 ## Vantagens
 
@@ -27,7 +27,7 @@ Faça o download do plugin e coloque seu conteúdo dentro de `/app/plugins/acl_c
 
 ## Configurações
 
-Arquivo `/app/app_controller`acl_caching`:
+Edite o arquivo __/app/app_controller/acl_caching__:
 
 <pre>
     var $components = array(
@@ -39,7 +39,7 @@ Arquivo `/app/app_controller`acl_caching`:
                 'contain' => false
             ),
                 'aro' => array(
-                'model' 	     => 'Group',
+                'model' 	   => 'Group',
                 'primaryKey'   => 'id',
                 'displayField' => 'name',
                 'foreignKey'   => 'group_id'
@@ -55,7 +55,7 @@ Arquivo `/app/app_controller`acl_caching`:
 
 Parâmetros de configurações do componente:
 
-*   __contain:__ Se você defini o recursive de todos os models como -1, defina está opão como TRUE;
+*   __contain:__ Se você defini o recursive de todos os models como -1, defina está opção como TRUE;
 *   __model:__ Informe o model responsável pelos grupos dos usuário;
 *   __primaryKey:__ Informe o nome do campo;
 *   __displayField:__ Informe o nome do campo;
@@ -63,11 +63,11 @@ Parâmetros de configurações do componente:
 
 ## Definições de acesso
 
-Para configurar denifir as regras de permissões para os grupos de usuários, acesse `http://seusite.com/admin/acl_caching/acl/`
+Para configurar as regras de permissões para os grupos de usuários, acesse `http://seusite.com/admin/acl_caching/acl/`
 
 # Utilização do Componente
 
-Você pode chamar as funções do plugin nos controllers utilizando `$this->Acl` ou `$this->AclCaching`, pode também chama-las nas views através das variáveis `$Acl` ou `$AclCaching`.
+Você pode chamar as funções do plugin nos controllers utilizando `$this->Acl` ou `$this->AclCaching`, pode também chama-las nas views através das variáveis `$Acl` e `$AclCaching`.
 
 # Funções especiais
 
