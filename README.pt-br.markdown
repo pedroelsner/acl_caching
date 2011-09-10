@@ -27,7 +27,7 @@ Faça o download do plugin e coloque seu conteúdo dentro de `/app/plugins/acl_c
 
 ## Configurações
 
-Edite o arquivo __/app/app_controller/acl_caching__:
+Edite o arquivo __/app/app_controller.php__:
 
 <pre>
     var $components = array(

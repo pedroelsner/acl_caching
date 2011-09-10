@@ -27,7 +27,7 @@ Download the plugin and place its contents inside `/app/plugins/acl_caching` or 
 
 ## Configuration
 
-Edit the file __/app/app_controller/acl_caching__:
+Edit the file __/app/app_controller.php__:
 
 <pre>
     var $components = array(
