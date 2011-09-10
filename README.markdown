@@ -4,7 +4,7 @@ Plugin that extends the functionality of AclComponente by caching all the access
 
 ## Compatibility
 
-This plugin is compatible with CakePHP version 1.3.x
+Compatible with CakePHP v 1.3
 
 ## Disadvantage
 
@@ -30,27 +30,27 @@ Download the plugin and place its contents inside `/app/plugins/acl_caching` or 
 Edit the file __/app/app_controller.php__:
 
 <pre>
-    var $components = array(
-        'Auth',          
-        'Session',       
-        'RequestHandler',
-        'AclCaching.AclCaching' => array(
-            'use' => array(
-                'contain' => false
-            ),
-                'aro' => array(
-                'model' 	   => 'Group',
-                'primaryKey'   => 'id',
-                'displayField' => 'name',
-                'foreignKey'   => 'group_id'
-            )
+var $components = array(
+    'Auth',          
+    'Session',       
+    'RequestHandler',
+    'AclCaching.AclCaching' => array(
+        'use' => array(
+            'contain' => false
+        ),
+            'aro' => array(
+            'model' 	   => 'Group',
+            'primaryKey'   => 'id',
+            'displayField' => 'name',
+            'foreignKey'   => 'group_id'
         )
-    );
-    
-    var $helpers = array(
-        'Session',
-        'AclCaching.AclHtml'
-    );
+    )
+);
+
+var $helpers = array(
+    'Session',
+    'AclCaching.AclHtml'
+);
 </pre>
 
 Settings parameters:
@@ -76,21 +76,21 @@ You can call the functions in the plugin controllers using `$ this->Acl` or `$th
 This function checks if the logged in user may access to URL.
 
 <pre>
-   /**
-    * Controller
-    */
-   if ($this->AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'index')))
-   {
-      // Has permission
-   }
+/**
+ * Controller
+ */
+if ($this->AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'index')))
+{
+    // Has permission
+}
 
-   /**
-    * View
-    */
-   if ($AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'index')))
-   {
-      // Has permission
-   }
+/**
+ * View
+ */
+if ($AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'index')))
+{
+   // Has permission
+}
 </pre>
 
 ## checkIfOne()
@@ -98,34 +98,34 @@ This function checks if the logged in user may access to URL.
 This function checks if the logged in user may access to at least a URL.
 
 <pre>
-    $urls = array(
-        array(
-            'controller' => 'groups',
-            'action'     => 'add'
-        ),
-        array(
-            'controller' => 'acl',
-            'action'     => 'index',
-            'admin'      => true,
-            'plugion'    => 'acl_caching'
-        )
-    );
+$urls = array(
+    array(
+        'controller' => 'groups',
+        'action'     => 'add'
+    ),
+    array(
+        'controller' => 'acl',
+        'action'     => 'index',
+        'admin'      => true,
+        'plugion'    => 'acl_caching'
+    )
+);
 
-    /**
-     * Controller
-     */
-    if ($this->AclCaching->checkIfOne(null, $urls))
-    {
-        // Has permission
-    }
+/**
+ * Controller
+ */
+if ($this->AclCaching->checkIfOne(null, $urls))
+{
+    // Has permission
+}
 
-    /**
-     * View
-     */
-    if ($AclCaching->checkIfOne(null, $urls))
-    {
-        // Has permission
-    }
+/**
+ * View
+ */
+if ($AclCaching->checkIfOne(null, $urls))
+{
+    // Has permission
+}
 </pre>
 
 ## checkIfAll()
@@ -133,31 +133,31 @@ This function checks if the logged in user may access to at least a URL.
 This function checks if the logged in user may access to ALL urls.
 
 <pre>
-    $urls = array(
-        array(
-            'controller' => 'groups',
-            'action'     => 'add'
-        ),
-        array(
-            'action' => 'delete'
-        )
-    );
+$urls = array(
+    array(
+        'controller' => 'groups',
+        'action'     => 'add'
+    ),
+    array(
+        'action' => 'delete'
+    )
+);
 
-    /**
-     * Controller
-     */
-    if ($this->AclCaching->checkIfAll(null, $urls))
-    {
-        // Has permission
-    }
+/**
+ * Controller
+ */
+if ($this->AclCaching->checkIfAll(null, $urls))
+{
+    // Has permission
+}
 
-    /**
-     * View
-     */
-    if ($AclCaching->checkIfAll(null, $urls))
-    {
-        // Has permission
-    }
+/**
+ * View
+ */
+if ($AclCaching->checkIfAll(null, $urls))
+{
+    // Has permission
+}
 </pre>
 
 ## checkDB()
@@ -167,21 +167,21 @@ This function is used to check the access permission for a particular user to a 
 Thus, the plugin writes the access permissions in a session variable on login, you can use it to force the system to use the database to check the access permission.
 
 <pre>
-    /**
-     * Controller
-     */
-    if ($this->AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'index')))
-    {
-        // Tem permissão
-    }
+/**
+ * Controller
+ */
+if ($this->AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'index')))
+{
+    // Tem permissão
+}
 
-    /**
-     * View
-     */
-    if ($AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'index')))
-    {
-        // Tem permissão
-    }
+/**
+ * View
+ */
+if ($AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'index')))
+{
+    // Tem permissão
+}
 </pre>
 
 ## forceAllow()
@@ -191,8 +191,8 @@ When using Auth and ACL, in order to allow access to all actions of the system w
 Calling this function, turn off all the permit system, freeing up access to all actions of the system and displaying all the helper Acl_HTML links:
 
 <pre>
-    // Allow ALL
-    $this->AclCaching->forceAllow();
+// Allow ALL
+$this->AclCaching->forceAllow();
 </pre>
 
 ## flushCache()
@@ -200,11 +200,11 @@ Calling this function, turn off all the permit system, freeing up access to all 
 Deletes the session that holds the access permissions. The plugin automatically loads all the permissions check when the function `check()` is requested.
 
 <pre>
-    // Controller
-    $this->AclCaching->flushCache();
+// Controller
+$this->AclCaching->flushCache();
 
-    // View
-    $AclCaching->flushCache();
+// View
+$AclCaching->flushCache();
 </pre>
 
 # Using the Helper
@@ -214,32 +214,32 @@ This helper is designed simply to hide links that the user does not have permiss
 Suppose we have the link `Add New Post` and we want to show it only for users with permission to enroll, then we use the helper `Acl_Html` instead of `Html`.
 
 <pre>
-    // Link only appears if user has permission
-    $this->AclHtml->link(
-        __('Add New Post', true),
-        array(
-            'controller' => 'posts',
-            'action'     => 'add',
-            'admin'      => true
-        )
-    );
+// Link only appears if user has permission
+$this->AclHtml->link(
+    __('Add New Post', true),
+    array(
+        'controller' => 'posts',
+        'action'     => 'add',
+        'admin'      => true
+    )
+);
 </pre>
 
 There will be a situation that you want to display only the text `Add New Post` if you do not have permission to access (instead of not displaying anything). For this we set __show__ = __true__.
 
 <pre>
-    // If the user has permission displays the link, if not, displays only the text
-    $this->AclHtml->link(
-        __('Add New Post', true),
-        array(
-            'controller' => 'posts',
-            'action'     => 'add',
-            'admin'      => true
-        ),
-        array(
-            'show' => true // display text
-        )
-    );
+// If the user has permission displays the link, if not, displays only the text
+$this->AclHtml->link(
+    __('Add New Post', true),
+    array(
+        'controller' => 'posts',
+        'action'     => 'add',
+        'admin'      => true
+    ),
+    array(
+        'show' => true // display text
+    )
+);
 </pre>
 
 # Copyright e License
