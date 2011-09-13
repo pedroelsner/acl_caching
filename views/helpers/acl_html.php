@@ -48,6 +48,12 @@ class AclHtmlHelper extends HtmlHelper
     function _hasPermission($url)
     {
         
+        // Se não houver permissões, libera
+        if ( !($this->Session->check('Auth.Permissions')) )
+        {
+            return true;
+        }
+        
         if (!is_array($url)) {
             return true;
         }
