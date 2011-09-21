@@ -27,7 +27,7 @@ App::import('Component', 'Acl');
  */
 class AclCachingComponent extends AclComponent
 {
-    
+
 /**
  * Configurações do Componente
  *
@@ -225,9 +225,6 @@ class AclCachingComponent extends AclComponent
     {
         $this->controller->Auth->allow('*');
         $this->_forceAllow = true;
-        
-        // Apaga todas as sessões criadas
-        $this->flushCache();
     }
     
     
