@@ -55,7 +55,7 @@ echo $this->Html->css('/acl_caching/css/style');
                                 if($ctrl_info['permissions'][$role[$AclCaching->getAroModel()][$AclCaching->getAroPrimaryKey()]] == 1)
                                 {
                                     
-                                    if ($AclCaching->check(null, array('plugin' => 'acl_caching', 'controller' => 'acl', 'action' => 'allow')))
+                                    if ($AclCaching->check(null, array('plugin' => 'acl_caching', 'controller' => 'acl', 'action' => 'admin_allow')))
                                     {
                                         echo $this->Html->image(
                                             '/acl_caching/img/tick.png',
@@ -81,7 +81,7 @@ echo $this->Html->css('/acl_caching/css/style');
                                 else
                                 {
                                     
-                                    if ($AclCaching->check(null, array('plugin' => 'acl_caching', 'controller' => 'acl', 'action' => 'deny')))
+                                    if ($AclCaching->check(null, array('plugin' => 'acl_caching', 'controller' => 'acl', 'action' => 'admin_deny')))
                                     {
                                         echo $this->Html->image(
                                             '/acl_caching/img/cross.png',
@@ -177,7 +177,7 @@ echo $this->Html->css('/acl_caching/css/style');
                                     {
                                         
                                         
-                                        if ($AclCaching->check(null, array('plugin' => 'acl_caching', 'controller' => 'acl', 'action' => 'allow')))
+                                        if ($AclCaching->check(null, array('plugin' => 'acl_caching', 'controller' => 'acl', 'action' => 'admin_allow')))
                                         {
                                             echo $this->Html->image(
                                                 '/acl_caching/img/tick.png',
@@ -204,7 +204,7 @@ echo $this->Html->css('/acl_caching/css/style');
                                     {
                                         
                                         
-                                        if ($AclCaching->check(null, array('plugin' => 'acl_caching', 'controller' => 'acl', 'action' => 'deny')))
+                                        if ($AclCaching->check(null, array('plugin' => 'acl_caching', 'controller' => 'acl', 'action' => 'admin_deny')))
                                         {
                                             echo $this->Html->image(
                                                 '/acl_caching/img/cross.png',
