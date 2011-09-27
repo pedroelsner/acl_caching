@@ -79,7 +79,7 @@ Esta função verifica se o usuário logado tem permissão de acesso para a url 
 /**
  * Utilizando no Controller
  */
-if ($this->AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'index')))
+if ($this->AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'admin_index')))
 {
    // Tem permissão
 }
@@ -87,7 +87,7 @@ if ($this->AclCaching->check(null, array('controller' => 'usuarios', 'action' =>
 /**
  * Utilizando na View
  */
-if ($AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'index')))
+if ($AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'admin_index')))
 {
    // Tem permissão
 }
@@ -101,12 +101,11 @@ Esta função verifica se o usuário logado tem permissão de acesso em pelo men
 $urls = array(
     array(
         'controller' => 'grupos',
-        'action'     => 'adicionar'
+        'action'     => 'admin_adicionar'
     ),
     array(
         'controller' => 'acl',
-        'action'     => 'index',
-        'admin'      => true,
+        'action'     => 'admin_index',
         'plugion'    => 'acl_caching'
     )
 );
@@ -136,10 +135,10 @@ Esta função verifica se o usuário logado tem permissão de acesso em TODAS as
 $urls = array(
     array(
         'controller' => 'grupos',
-        'action'     => 'adicionar'
+        'action'     => 'admin_adicionar'
     ),
     array(
-        'action' => 'excluir'
+        'action' => 'admin_excluir'
     )
 );
 
@@ -170,7 +169,7 @@ Sendo assim, como o plugin grava as permissões de acesso em uma variável de se
 /**
  * Utilizando no Controller
  */
-if ($this->AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'index')))
+if ($this->AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'admin_index')))
 {
     // Tem permissão
 }
@@ -178,7 +177,7 @@ if ($this->AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), a
 /**
  * Utilizando na View
  */
-if ($AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'index')))
+if ($AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'admin_index')))
 {
     // Tem permissão
 }

@@ -79,7 +79,7 @@ This function checks if the logged in user may access to URL.
 /**
  * Controller
  */
-if ($this->AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'index')))
+if ($this->AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'admin_index')))
 {
     // Has permission
 }
@@ -87,7 +87,7 @@ if ($this->AclCaching->check(null, array('controller' => 'usuarios', 'action' =>
 /**
  * View
  */
-if ($AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'index')))
+if ($AclCaching->check(null, array('controller' => 'usuarios', 'action' => 'admin_index')))
 {
    // Has permission
 }
@@ -101,12 +101,11 @@ This function checks if the logged in user may access to at least a URL.
 $urls = array(
     array(
         'controller' => 'groups',
-        'action'     => 'add'
+        'action'     => 'admin_add'
     ),
     array(
         'controller' => 'acl',
-        'action'     => 'index',
-        'admin'      => true,
+        'action'     => 'admin_index',
         'plugion'    => 'acl_caching'
     )
 );
@@ -136,10 +135,10 @@ This function checks if the logged in user may access to ALL urls.
 $urls = array(
     array(
         'controller' => 'groups',
-        'action'     => 'add'
+        'action'     => 'admin_add'
     ),
     array(
-        'action' => 'delete'
+        'action' => 'admin_delete'
     )
 );
 
@@ -170,17 +169,17 @@ Thus, the plugin writes the access permissions in a session variable on login, y
 /**
  * Controller
  */
-if ($this->AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'index')))
+if ($this->AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'admin_index')))
 {
-    // Tem permissão
+    // Has permission
 }
 
 /**
  * View
  */
-if ($AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'index')))
+if ($AclCaching->checkDB(array('Model' => 'Usuario', 'foreignKey' => 2), array('action' => 'admin_index')))
 {
-    // Tem permissão
+    // Has permission
 }
 </pre>
 
